@@ -1,28 +1,28 @@
 
 [
   {
-    "title": "Project 1",
-    "year": "2024",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "Description of project 1."
-  },
-  {
-    "title": "Project 2",
-    "year": "2024",
-    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "Description of project 2."
-  },
-  {
-    "title": "Project 3",
+    "title": "E-Commerce Schema",
     "year": "2023",
     "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "Description of project 3."
+    "description": "Designed a schema for an ecommerce database for ease of reporting, portability, and functionality. This was used to track purchases, sales, refunds, and more."
   },
   {
-    "title": "Project 4",
-    "year": "2023",
+    "title": "ETL Validation",
+    "year": "2024",
     "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-    "description": "Description of project 4."
+    "description": "Developed an ETL validation process to ensure data integrity and consistency from source to target systems."
+  },
+  {
+    "title": "Data Capstone Project",
+    "year": "2024",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Created a model that could accurately predict expected healthcare costs for patients given only initial state information at intake, with cross referenced model validation logic."
+  },
+  {
+    "title": "LLM Suggestibility",
+    "year": "2026",
+    "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+    "description": "Creating a tool that evaluates the suggestibility of objective questions to AI models."
   },
   {
     "title": "Project 5",
