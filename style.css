@@ -160,3 +160,47 @@ h1, h2, h3, h4, h5, h6 {
     margin-block: 2em;
     overflow: visible;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.container .legend {
+    flex: 1;
+}
+
+.legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+    padding: 1em;
+    margin: 0;
+    border: 1px solid #888;
+    border-radius: 0.5em;
+    list-style: none;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    background: var(--color);
+    border-radius: 0.2em;
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
