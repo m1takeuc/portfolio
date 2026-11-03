@@ -1,4 +1,3 @@
-
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
@@ -11,6 +10,7 @@ const searchInput = document.querySelector('.searchBar');
 projectsTitle.textContent = `${projects.length} Projects`;
 
 let query = '';
+let selectedIndex = -1;
 
 function renderPieChart(projectsGiven) {
     let rolledData = d3.rollups(
@@ -34,22 +34,54 @@ function renderPieChart(projectsGiven) {
     let svg = d3.select('#projects-pie-plot');
     svg.selectAll('path').remove();
 
+    let legend = d3.select('.legend');
+    legend.selectAll('li').remove();
+
+    function updateSelection() {
+        svg
+            .selectAll('path')
+            .classed('selected', (_, idx) => idx === selectedIndex);
+
+        legend
+            .selectAll('li')
+            .classed('selected', (_, idx) => idx === selectedIndex);
+
+        if (selectedIndex === -1) {
+            renderProjects(projects, projectsContainer, 'h2');
+        } else {
+            let selectedYear = data[selectedIndex].label;
+
+            let filteredProjects = projects.filter(
+                (project) => String(project.year) === String(selectedYear)
+            );
+
+            renderProjects(filteredProjects, projectsContainer, 'h2');
+        }
+    }
+
     arcs.forEach((arc, idx) => {
         svg
             .append('path')
             .attr('d', arc)
-            .attr('fill', colors(idx));
+            .attr('fill', colors(idx))
+            .classed('selected', idx === selectedIndex)
+            .on('click', () => {
+                selectedIndex = selectedIndex === idx ? -1 : idx;
+                updateSelection();
+            });
     });
-
-    let legend = d3.select('.legend');
-    legend.selectAll('li').remove();
 
     data.forEach((d, idx) => {
         legend
             .append('li')
             .attr('class', 'legend-item')
             .attr('style', `--color:${colors(idx)}`)
-            .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+            .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`)
+            .classed('selected', idx === selectedIndex)
+            .on('click', () => {
+                selectedIndex = selectedIndex === idx ? -1 : idx;
+                updateSelection();
+            });
     });
 }
 
@@ -58,6 +90,7 @@ renderPieChart(projects);
 
 searchInput.addEventListener('input', (event) => {
     query = event.target.value.toLowerCase();
+    selectedIndex = -1;
 
     let filteredProjects = projects.filter((project) => {
         let values = Object.values(project).join('\n').toLowerCase();

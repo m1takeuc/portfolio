@@ -204,3 +204,29 @@ h1, h2, h3, h4, h5, h6 {
         align-items: stretch;
     }
 }
+
+#projects-pie-plot path {
+    cursor: pointer;
+    transition: opacity 300ms, fill 300ms;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+    opacity: 0.5;
+}
+
+.selected {
+    --color: oklch(60% 45% 0) !important;
+}
+
+#projects-pie-plot path.selected {
+    fill: var(--color);
+}
+
+.legend-item.selected {
+    background: oklch(60% 45% 0 / 15%);
+    border-radius: 0.3em;
+}
+
+.legend-item {
+    cursor: pointer;
+}
