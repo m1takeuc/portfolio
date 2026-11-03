@@ -1,3 +1,4 @@
+
 html {
     color-scheme: light dark;
     --color-accent: oklch(65% 50% 0);
@@ -152,4 +153,10 @@ h1, h2, h3, h4, h5, h6 {
     grid-row: 2;
     margin: 0;
     font-size: 2rem;
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
 }
