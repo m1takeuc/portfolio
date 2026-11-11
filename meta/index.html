@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Analysis</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Code Analysis</h1>
+    <p>Visualizing my portfolio's Git history, coding activity, and programming languages.</p>
+
+    <div id="stats"></div>
+
+    <h2>Commits by Time of Day</h2>
+    <div id="chart"></div>
+
+    <p id="selection-count">No commits selected</p>
+    <div id="language-breakdown"></div>
+
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+        <dt>Commit</dt>
+        <dd><a id="commit-link" target="_blank" rel="noopener noreferrer"></a></dd>
+
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
+
+        <dt>Time</dt>
+        <dd id="commit-time"></dd>
+
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
+
+        <dt>Lines edited</dt>
+        <dd id="commit-lines"></dd>
+    </dl>
+
+    <script type="module" src="../global.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
